@@ -1,0 +1,32 @@
+package com.xlc.atcrowdfunding.manager.dao;
+
+import com.xlc.atcrowdfunding.bean.User;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+
+public interface UserMapper {
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(User record);
+
+    User selectByPrimaryKey(Integer id);
+
+    List<User> selectAll();
+
+    int updateByPrimaryKey(User record);
+
+    //查询用户名和密码(登录)
+	User queryUserlogin(Map<String, Object> map);
+
+	//查询分页
+	List<User> queryListPage(@Param("startIndex")Integer startIndex, @Param("pagesize")Integer pagesize);
+
+	//查询总记录条数
+	Integer queryCont();
+
+	List<String,Object> queryListPage(Map<String, Object> map);
+	
+	
+}
